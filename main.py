@@ -12,8 +12,8 @@ while resp != 'nao':
         cliente = {
             "nome": formatar_texto(input("Nome: ")),
             "cpf": validar_cpf(),
-            "rg": input("RG: "),
-            "data_nasc": input("Data de Nascimento: "),
+            "rg": validar_rg(),
+            "data_nasc": validar_data(),
             "cep": input("CEP: "),
             "num_casa": input("Número casa: ")
         }
