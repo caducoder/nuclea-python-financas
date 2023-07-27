@@ -2,9 +2,6 @@ from validate_docbr import CPF
 from datetime import datetime
 import re
 
-
-
-
 cpf_valido = CPF(repeated_digits=True)
 
 def printa_menu():
