@@ -1,5 +1,5 @@
 from utils.funcoes_auxiliares import *
-from utils.cep import busca_cep
+from utils.cep import valida_cep
 
 print("Seja bem vindo(a) ao sistema de gerenciamento de carteira de ações da Nuclea. Selecione uma das opções:")
 clientes = []
@@ -15,7 +15,7 @@ while resp != 'nao':
             "cpf": validar_cpf(),
             "rg": validar_rg(),
             "data_nasc": validar_data(),
-            "endereco": busca_cep(),
+            "endereco": valida_cep(),
             "num_casa": input("Número casa: ")
         }
         
