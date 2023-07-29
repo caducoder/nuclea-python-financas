@@ -1,7 +1,7 @@
 import requests
 import re
 
-def valida_cep(cep):
+def valida_cep():
     padrao_cep = r'^\d{8}'
     while True:
         # verificar se tem traço

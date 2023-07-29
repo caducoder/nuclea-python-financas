@@ -1,8 +1,5 @@
-from validate_docbr import CPF
 from datetime import datetime
 import re
-
-cpf_valido = CPF(repeated_digits=True)
 
 def printa_menu():
     print("1 - Cadastrar cliente")
@@ -16,19 +13,6 @@ def printa_menu():
 
 def formatar_texto(texto: str):
     return texto.title()
-
-
-def validar_cpf():
-    while True:
-        cpf = input("CPF: ")
-        eh_valido = cpf_valido.validate(cpf)
-        if not eh_valido:
-            print('CPF inválido')
-        else:
-            if cpf.find('.') != -1:
-                return cpf # já formatado
-            return cpf_valido.mask(cpf)
-    
     
 
 def validar_rg():
