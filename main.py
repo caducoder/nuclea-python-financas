@@ -6,7 +6,7 @@ print("Seja bem vindo(a) ao sistema de gerenciamento de carteira de ações da N
 clientes = []
 
 
-
+# adicionar menu de cliente para as operações CRUD
 def main():
     resp = 'sim'
     while resp != 'nao':
