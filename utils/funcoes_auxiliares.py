@@ -2,7 +2,7 @@ from datetime import datetime
 import re
 
 def printa_menu():
-    print("1 - Cadastrar cliente")
+    print("1 - Cliente")
     print("2 - Cadastrar ação")
     print("3 - Realizar análise da carteira")
     print("4 - Imprimir relatório da carteira")
@@ -10,6 +10,14 @@ def printa_menu():
 
     return int(input("Digite a opção desejada: "))
 
+
+def printa_menu_cliente():
+    print("1 - Cadastrar")
+    print("2 - Listar")
+    print("3 - Atualizar")
+    print("4 - Remover")
+
+    return int(input("Digite a opção desejada: "))
 
 def formatar_texto(texto: str):
     return texto.title()

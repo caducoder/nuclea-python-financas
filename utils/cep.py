@@ -27,7 +27,8 @@ def busca_cep(cep):
         "Logradouro": resJson["logradouro"],
         "Bairro": resJson["bairro"],
         "Cidade": resJson["localidade"],
-        "Estado": resJson["uf"]
+        "Estado": resJson["uf"],
+        "Complemento": resJson["complemento"]
     }
 
     return endereco
