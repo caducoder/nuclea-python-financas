@@ -3,7 +3,7 @@ import re
 
 def printa_menu():
     print("1 - Cliente")
-    print("2 - Cadastrar ação")
+    print("2 - Cadastrar ordem")
     print("3 - Realizar análise da carteira")
     print("4 - Imprimir relatório da carteira")
     print("5 - Sair")
@@ -23,10 +23,10 @@ def formatar_texto(texto: str):
     return texto.title()
     
 
-def validar_rg():
+def validar_rg(prompt: str):
     padrao_rg = r'^\d{1,2}\.\d{3}\.\d{3}-[0-9A-Za-z]{1}$'
     while True:
-        rg = input("RG: ")
+        rg = input(prompt)
         eh_valido = re.match(padrao_rg,rg)
         if eh_valido == None:
             print('RG inválido')
@@ -34,16 +34,16 @@ def validar_rg():
             return rg
         
 
-def validar_data():
+def validar_data(prompt: str):
     while True:
-        data_nasc = input("Data de Nascimento: ")
+        data_nasc = input(prompt)
         try:
             data_covertida = datetime.strptime(data_nasc, "%d/%m/%Y").date()
 
             data_atual = datetime.now().date()
 
             if data_covertida < data_atual:
-                return data_covertida.strftime("%d/%m/%Y")
+                return data_covertida.strftime("%Y-%m-%d")
             else:
                 print("Data de nascimento dever ser anterior a data de hoje")
         except ValueError as e:

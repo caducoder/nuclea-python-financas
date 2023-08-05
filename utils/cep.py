@@ -1,11 +1,12 @@
 import requests
 import re
 
-def valida_cep():
+def valida_cep(prompt: str):
     padrao_cep = r'^\d{8}'
     while True:
         # verificar se tem traço
-        cep = input("CEP: ")
+        cep = input(prompt)
+        cep = cep.replace('-', '')
         if re.match(padrao_cep, cep) == None:
             print('CEP inválido')
         else:
@@ -20,15 +21,13 @@ def busca_cep(cep):
     response = requests.get(url)
     resJson = response.json()
 
-    # buscar as informações e devolver um dicionário com cep, 
-    # logradouro, complemento e localidade
     endereco = {
-        "CEP": resJson["cep"],
-        "Logradouro": resJson["logradouro"],
-        "Bairro": resJson["bairro"],
-        "Cidade": resJson["localidade"],
-        "Estado": resJson["uf"],
-        "Complemento": resJson["complemento"]
+        "cep": resJson["cep"],
+        "logradouro": resJson["logradouro"],
+        "bairro": resJson["bairro"],
+        "cidade": resJson["localidade"],
+        "estado": resJson["uf"],
+        "complemento": 'N/A' if resJson["complemento"] == "" else resJson["complemento"]
     }
 
     return endereco
