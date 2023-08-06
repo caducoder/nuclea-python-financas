@@ -58,8 +58,6 @@ class BancoDeDados:
         select_query = "SELECT * FROM clientes"
         self.cursor.execute(select_query)
         clientes = self.cursor.fetchall()
-        for cliente in clientes:
-            print(cliente)
         return clientes
 
 
@@ -113,3 +111,15 @@ class BancoDeDados:
         self.cursor.execute(insert_query)
         self.conn.commit()
         print("Ordem adicionada com sucesso.")
+
+    
+    def buscar_acoes_por_cpf_cliente(self, cpf):
+        select_query = f"SELECT ticket \
+            FROM clientes c \
+            LEFT JOIN ordens o \
+            ON c.id = o.cliente_id \
+            WHERE c.cpf = '{cpf}';"
+        self.cursor.execute(select_query)
+        ordens = self.cursor.fetchall()
+        return ordens
+    

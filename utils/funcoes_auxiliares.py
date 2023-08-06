@@ -5,10 +5,10 @@ def printa_menu():
     print("1 - Cliente")
     print("2 - Cadastrar ordem")
     print("3 - Realizar análise da carteira")
-    print("4 - Imprimir relatório da carteira")
+    print("4 - Imprimir relatório")
     print("5 - Sair")
 
-    return int(input("Digite a opção desejada: "))
+    return input("Digite a opção desejada: ")
 
 
 def printa_menu_cliente():
@@ -17,7 +17,7 @@ def printa_menu_cliente():
     print("3 - Atualizar")
     print("4 - Remover")
 
-    return int(input("Digite a opção desejada: "))
+    return input("Digite a opção desejada: ")
 
 def formatar_texto(texto: str):
     return texto.title()
@@ -48,3 +48,8 @@ def validar_data(prompt: str):
                 print("Data de nascimento dever ser anterior a data de hoje")
         except ValueError as e:
             print("Data Inválida")
+
+
+def join_tuple_string(strings_tuple) -> str:
+   string_ordem = ''.join(strings_tuple)
+   return string_ordem + '.SA'
